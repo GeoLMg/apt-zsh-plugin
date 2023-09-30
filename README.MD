@@ -13,5 +13,5 @@ git clone git@github.com:GeoLMg/apt-zsh-plugin.git $ZSH/plugins/apt
 Add `zsh-aur-install` to the plugins array in your `.zshrc` file:
 
 ```shell notranslate position-relative overflow-auto
-plugins=(... zsh-aur-install)
+plugins=(... apt)
 ```
