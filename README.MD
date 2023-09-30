@@ -2,7 +2,7 @@
 
 A small plugin for distros with apt package manager. It will ask you to install command, if it not installed on system. Thats all!
 
-## [oh-my-zsh](https://github.com/redxtech/zsh-aur-install#oh-my-zsh)
+## oh-my-zsh
 
 Install it with your favourite zsh package manager, or clone it directly to your `$ZSH_CUSTOM/plugins` directory with git. Or just run:
 
