@@ -21,6 +21,7 @@ function command_not_found_handler() {
     declare myVar="$1"
     shift 1
    if ! sudo apt install $myVar -y; then
+      echo "\nTry to find command in other packages..."
       python3 $ZSH/plugins/apt/find.py $myVar 
    fi
   }
