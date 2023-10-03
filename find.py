@@ -1,0 +1,35 @@
+from sys import argv
+import subprocess
+import re
+
+_,s = argv
+
+n = subprocess.run(["apt", "search", s],text=True,capture_output=True)
+pac_name = re.sub(r"(\/.*)","",n.stdout)
+pac_name = re.sub(r"(  .*)","",pac_name)
+pac_name = re.sub(r"\n\n\n","\n",pac_name)
+list_names = pac_name.split('\n')
+
+list_names.pop(0)
+list_names.pop(0)
+list_names.pop(-1)
+
+pac_disc = re.sub("(.*\/.*)", "",n.stdout)
+pac_disc = re.sub(r"\n\n\n","\n",pac_disc)
+list_disc = pac_disc.split('\n')
+nl = list_disc[3:-2]
+i =0
+if len(list_names) ==0:
+  quit("No package found found")
+print(f"List of packages contains {s}:")
+for f in nl:
+  print(f"{i}|",list_names[i],":",f)
+  i+=1
+try:
+    x=int(input(f"please enter number[0-{i-1}]: "))
+except KeyboardInterrupt:
+    quit()
+
+
+print("\n",list_names[x])
+subprocess.run(["sudo","apt","install",list_names[x],"-y"])

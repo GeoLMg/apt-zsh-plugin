@@ -8,10 +8,19 @@ function command_not_found_handler() {
   echo ""
   case $yn in
     [дД]|[yY]|[eE]|[sS]|[yY]*|[jJ]*)
-             sudo apt install $0 -y
+            #  sudo apt install $0 -y; 
+            new_exeption $0;
             ;;
         *)
             exit
             ;;
     esac
+  }
+  
+  function new_exeption() {
+    declare myVar="$1"
+    shift 1
+   if ! sudo apt install $myVar -y; then
+      python3 $ZSH/plugins/apt/find.py $myVar 
+   fi
   }
