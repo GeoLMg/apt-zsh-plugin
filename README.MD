@@ -1,6 +1,6 @@
 # APT plugin for zsh
 
-A small plugin for distros with apt package manager. It will ask you to install command, if it not installed on system. Thats all!
+A small plugin for distros with apt package manager. It will ask you to install command, if it not installed on system. If command not foud, program will try to find it in other packages. Thats all!
 
 ## oh-my-zsh
 
@@ -15,3 +15,4 @@ Add `apt` to the plugins array in your `.zshrc` file:
 ```shell notranslate position-relative overflow-auto
 plugins=(... apt)
 ```
+
