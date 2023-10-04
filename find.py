@@ -21,7 +21,13 @@ nl = list_disc[3:-2]
 i =0
 if len(list_names) ==0:
   quit("No package found found")
-print(f"List of packages contains {s}:")
+
+elif len(list_names) == 1:
+  print(f"One package found\nInstalling ",list_names[0]," pleese wait...\n")
+  subprocess.run(["sudo","apt","install",list_names[0],"-y"])
+  quit()
+else:
+  print(f"List of packages contains {s}:")  
 for f in nl:
   print(f"{i}|",list_names[i],":",f)
   i+=1
