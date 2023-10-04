@@ -3,6 +3,10 @@ import subprocess
 import re
 
 _,s = argv
+RED='\033[0;31m'
+GREEN='\033[0;32m' 
+BOLD = '\033[1m'
+NC='\033[0m'
 
 n = subprocess.run(["apt", "search", s],text=True,capture_output=True)
 pac_name = re.sub(r"(\/.*)","",n.stdout)
@@ -20,6 +24,7 @@ list_disc = pac_disc.split('\n')
 nl = list_disc[3:-2]
 i =0
 if len(list_names) ==0:
+<<<<<<< HEAD
   quit("No package found found")
 
 elif len(list_names) == 1:
@@ -28,11 +33,15 @@ elif len(list_names) == 1:
   quit()
 else:
   print(f"List of packages contains {s}:")  
+=======
+  quit(RED+BOLD+"E: "+NC+"No package found found")
+print(f"List of packages contains {s}:\n")
+>>>>>>> 609023b25345f1e11b8e0a0a2da0f4ac41e872be
 for f in nl:
   print(f"{i}|",list_names[i],":",f)
   i+=1
 try:
-    x=int(input(f"please enter number[0-{i-1}]: "))
+    x=int(input(f"\nPlease enter number[0-{i-1}]: "))
 except KeyboardInterrupt:
     quit()
 
