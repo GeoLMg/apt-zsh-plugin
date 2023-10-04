@@ -25,7 +25,7 @@ nl = list_disc[3:-2]
 i =0
 if len(list_names) ==0:
 <<<<<<< HEAD
-  quit("No package found found")
+  quit(RED+BOLD+"E: "+NC+"No package found found")
 
 elif len(list_names) == 1:
   print(f"One package found\nInstalling ",list_names[0]," pleese wait...\n")
