@@ -24,7 +24,6 @@ list_disc = pac_disc.split('\n')
 nl = list_disc[3:-2]
 i =0
 if len(list_names) ==0:
-<<<<<<< HEAD
   quit(RED+BOLD+"E: "+NC+"No package found found")
 
 elif len(list_names) == 1:
@@ -33,10 +32,7 @@ elif len(list_names) == 1:
   quit()
 else:
   print(f"List of packages contains {s}:")  
-=======
-  quit(RED+BOLD+"E: "+NC+"No package found found")
-print(f"List of packages contains {s}:\n")
->>>>>>> 609023b25345f1e11b8e0a0a2da0f4ac41e872be
+  
 for f in nl:
   print(f"{i}|",list_names[i],":",f)
   i+=1
