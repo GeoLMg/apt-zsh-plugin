@@ -24,5 +24,6 @@ function command_not_found_handler() {
       echo "\nTry to find command in other packages..."
       python3 $ZSH/plugins/apt/find.py $myVar 
       $myVar
+      else $myVar
    fi
   }
