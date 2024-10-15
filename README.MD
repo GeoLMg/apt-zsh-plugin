@@ -4,10 +4,10 @@ A small plugin for distros with apt package manager. It will ask you to install 
 
 ## oh-my-zsh
 
-Install it with your favourite zsh package manager, or clone it directly to your `$ZSH_CUSTOM/plugins` directory with git. Or just run:
+Install it with your favourite zsh package manager, or clone it directly to your `$ZSH/plugins` directory with git. Or just run:
 
 ```shell notranslate position-relative overflow-auto
-git clone git@github.com:GeoLMg/apt-zsh-plugin.git $ZSH/plugins/apt
+git clone git@github.com:GeoLMg/apt-zsh-plugin.git $ZSH/plugins/
 ```
 
 Add `apt` to the plugins array in your `.zshrc` file:
