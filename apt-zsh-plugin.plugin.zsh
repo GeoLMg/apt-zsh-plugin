@@ -74,7 +74,7 @@ function command_not_found_handler() {
         echo -e "\nTrying to find command in other packages..."  # По умолчанию на английском
         ;;
       esac
-      python3 $ZSH/plugins/apt/find.py $app_name
+      python3 $ZSH/plugins/apt-zsh-plugin/find.py $app_name
       if [ $? -ne 0 ]; then
         case "$current_language" in
           en)
