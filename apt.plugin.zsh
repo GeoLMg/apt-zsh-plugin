@@ -104,7 +104,44 @@ function command_not_found_handler() {
         esac
         return 1
       fi
+      echo "Запуск"
+        if ! type "$app_name" > /dev/null; then
+            return 1
+        fi
       $app_name
-      else $app_name
+      else
+        if ! type "$app_name" > /dev/null; then
+            return 1
+        fi
+        $app_name
+
    fi
   }
+
+function upgrading_system () {
+    RED='\033[0;31m'
+    Green='\033[0;32m' 
+    NC='\033[0m' # No Color
+    SECONDS=0
+
+    notify-send "Starting updating system"
+    echo -e "${RED}APT${NC}: Updating repos..."
+    sudo apt update 1> /dev/null
+    echo -e "${RED}APT${NC}: Updating packages..."
+    sudo apt upgrade -y
+    echo -e "${RED}APT${NC}: Autoremoving packages..."
+    sudo apt autoremove -y
+    echo -e "\e${RED}APT${NC}: Autoremoving packages...done"
+    if  type "flatpak" &> /dev/null; then
+        echo -e "${RED}FLATPAK${NC}: Updating..."
+        sudo flatpak -y update
+    fi
+    if  type "snap" &> /dev/null; then
+        echo -e "${RED}SNAP${NC}: updating..."
+        sudo snap refresh
+    fi
+    duration=$SECONDS
+    echo -e "All updated in $((duration / 60)) minutes"
+    notify-send "All updated in $((duration / 60)) minutes"
+}
+  alias upall="upgrading_system"
