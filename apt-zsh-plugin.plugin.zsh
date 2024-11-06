@@ -104,8 +104,33 @@ function command_not_found_handler() {
         esac
         return 1
       fi
-      echo "Запуск"
         if ! type "$app_name" > /dev/null; then
+            case $current_language in
+                en)
+                    echo -e "Installed, but no bin with name ${RED}${app_name}${NC}"
+                    ;;
+                ru)
+                    echo -e "Установлено, но нет бинарного файла с именем ${RED}${app_name}${NC}"
+                    ;;
+                es)
+                    echo -e "Instalado, pero no hay bin con el nombre ${RED}${app_name}${NC}"
+                    ;;
+                fr)
+                    echo -e "Installé, mais pas de binaire avec le nom ${RED}${app_name}${NC}"
+                    ;;
+                hy)
+                    echo -e "Տեղադրված է, բայց ${RED}${app_name}${NC} անունով բինար չկա"
+                    ;;
+                de)
+                    echo -e "Installiert, aber kein Binärdatei mit dem Namen ${RED}${app_name}${NC}"
+                    ;;
+                it)
+                    echo -e "Installato, ma non c'è bin con il nome ${RED}${app_name}${NC}"
+                    ;;
+                *)
+                    echo -e "Installed, but no bin with name ${RED}${app_name}${NC}"
+                    ;;
+            esac
             return 1
         fi
       $app_name
